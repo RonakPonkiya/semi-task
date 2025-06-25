@@ -20,6 +20,7 @@ const UserLayout = ({ children }) => {
             <Link to="/dashboard" className="hover:underline">
               Dashboard
             </Link>
+            
             <button
               onClick={handleLogout}
               className="bg-red-500 hover:bg-red-600 px-3 py-1 rounded"

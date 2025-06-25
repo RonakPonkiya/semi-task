@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../../slices/AuthSlice";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Signup = () => {
   const onSubmit = (data) => {
     const {name , email , password} = data;
     dispatch(signup({ name, email, password }));
+    toast.success("Signup successful! Please login.");
     navigate("/login");
   };
 

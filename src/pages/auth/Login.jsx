@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login, signup } from "../../slices/AuthSlice";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -20,10 +21,11 @@ const Login = () => {
    if(foundUser)
    {
     dispatch(login(foundUser))
+    toast.success("Login Successful")
     navigate("/dashboard")
    } else {
-    alert("invalid credentials")
-   }
+    toast.error("Invalid credentials")
+}
   };
 
   return (

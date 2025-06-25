@@ -21,7 +21,7 @@ const Dashboard = () => {
             <h2 className="text-xl font-semibold text-gray-700">Tasks Completed</h2>
             <p className="text-3xl font-bold text-green-600 mt-2">27</p>
           </div>
-
+    
           <div className="bg-white shadow rounded p-5">
             <h2 className="text-xl font-semibold text-gray-700">Pending Reviews</h2>
             <p className="text-3xl font-bold text-red-500 mt-2">3</p>
