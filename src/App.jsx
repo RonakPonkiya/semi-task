@@ -7,6 +7,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import AuthLayout from "./layouts/AuthLayout";
 import UserLayout from "./layouts/UserLayout";
 import Home from "./pages/Home";
+import Profile from "./pages/dashboard/Profile";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("authUser"));
@@ -37,6 +38,16 @@ function App() {
           <ProtectedRoute>
             <UserLayout>
               <Dashboard />
+            </UserLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <UserLayout>
+              <Profile />
             </UserLayout>
           </ProtectedRoute>
         }
