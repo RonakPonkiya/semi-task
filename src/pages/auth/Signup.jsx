@@ -16,9 +16,18 @@ const Signup = () => {
   } = useForm();
 
   const password = watch("password");
+  const users = useSelector((state) => state.auth.users) || [];
 
   const onSubmit = (data) => {
-    const {name , email , password} = data;
+    const { name, email, password } = data;
+    const existingUser = users.find(
+      (u) => u.email.trim().toLowerCase() === email.trim().toLowerCase()
+    );
+
+    if (existingUser) {
+      alert("Email already registered");
+      return;
+    }
     dispatch(signup({ name, email, password }));
     toast.success("Signup successful! Please login.");
     navigate("/login");
@@ -107,7 +116,12 @@ const Signup = () => {
         Signup
       </button>
       <div>
-        <p>Already Have an Account? <Link to="/login"><span className="text-blue-900">Login</span></Link></p>
+        <p>
+          Already Have an Account?{" "}
+          <Link to="/login">
+            <span className="text-blue-900">Login</span>
+          </Link>
+        </p>
       </div>
     </form>
   );
